@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+*{
+    font-family: "Ubuntu",sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --blue:#4b4a4d;
+    --white:#fff;
+    --gray:#f5f5f5;
+}
+body{
+    min-height: 100vh;
+    overflow: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background:var(--blue);
+    border-left: 10px solid var(--blue);
+    transition:0.5s;
+    overflow: hidden;
+    padding-left: 50px;
+}
+
+.navigation.active{
+    width: 40px;
+}
+.navigation ul{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-radius:20px ;
+}
+.navigation ul li:hover{
+    background-color: white;
+
+}
+.navigation ul li:nth-child(1)
+{
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+/* .navigation ul li:hover a{
+    color: black;
+} */
+.navigation ul li a.icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 200px;
+    text-align: center;
+
+}
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75rem;;
+}
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+    /* white-space: nowrap; */
+}
+.main{
+    position: absolute;
+    width: 80%;
+    left: 300px;
+    min-height: 100vh;
+    background: rgb(184, 182, 182);
+    transition: 0.5s;
+    overflow: scroll;
+}
+.main.active{
+    width: 60%;
+    left: 45px;
+}
+.topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     margin-right: 1px; 
+     background-color: white;
+     border-radius: 10px;
+}
+.infor{
+    position: relative;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+.hline{
+    margin-right: 40px;
+}
+.login{
+    margin-right: 10px;
+    color: black;
+}
+.first{
+    margin-top: 20px;
+    
+}
+.second{
+    display: inline-block;
+    border: 2px solid rgb(184, 182, 182);
+    height: 40px;
+    background-color: rgba(27, 29, 29, 0.275);
+}
+.menu{
+   display: flex;
+   background-color: rgb(45, 44, 44);
+   border-radius: 5px;
+   
+   width: 100%;
+   
+}
+h1{
+    text-align: center;
+    margin-top: 20px;
+}
+table, td, th {
+    border: 1px solid black;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 60px ;
+
+    
+  }
+  thead{
+    margin-top: 10px;
+  }
+  th {
+    height: 50px;
+    text-align: left;
+    padding-left: 10px;
+  }
+  td{
+    padding-left: 10px;
+  }
+  tr:hover 
+  {
+    background-color:#a1a0a3;
+}
+th{
+    position: sticky;
+    top:0px;
+    background-color: rgb(103, 104, 104);
+    color: white;
+}
+.wraper{
+    max-height: 500px;
+    overflow-y: scroll;
+    margin: 5px;
+}
+    
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form-login{
+    max-width: 300px;
+    background: rgba(0, 0, 0 , 0.8);
+    flex-grow: 1;
+    padding: 40px 60px 40px;
+    box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
+    border-radius: 5%;
+}
+.form-heading{
+    font-size: 25px;
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-submit{
+    background: transparent;
+    border: 1px solid #f5f5f5;
+    color: #fff;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    transition: 0.25s ease-in-out;
+    margin-top: 20px;
+}
+.form-submit:hover{
+    border: 1px solid #54a0ff;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #6f6d6d;
+  }
+  .topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 17px;
+    border-radius: 10px;
+  }
+   

@@ -1,0 +1,201 @@
+/* google font link  */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+
+
+
+:root{
+   --main-color:#16a085;
+   --red:#eb4d4b;
+   --orange:#f39c12;
+   --black:#130f40;
+   --light-color:#999;
+   --light-bg:#eee;
+   --white:#fff;
+   --border:.1rem solid rgba(0,0,0,.2);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+   font-family: 'Comfortaa', cursive;
+   margin: 0; padding: 0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+   scrollbar-color: var(--main-color) var(--black);
+   scrollbar-width: thin;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body{
+   background-color: var(--light-bg);
+   padding-bottom: 8rem;
+}
+
+section{
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+
+
+.btn{
+   display: block;
+   width: 100%;
+}
+
+
+.btn{
+   margin-top: 1rem;
+   text-align: center;
+   padding: 1rem 3rem;
+   font-size: 1.8rem;
+   border-radius: .5rem;
+   border: var(--border);
+   color: var(--white);
+   cursor: pointer;
+   text-transform: capitalize;
+}
+
+.btn{
+   background-color: var(--main-color);
+}
+
+
+.btn:hover{
+   background-color: var(--black);
+}
+
+
+.account-form form{
+   background: var(--white);
+   box-shadow: var(--box-shadow);
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   border: var(--border);
+   border-radius: .5rem;
+   max-width: 50rem;
+   margin: 0 auto;
+}
+
+.account-form form h3{
+   padding-bottom: 1rem;
+   font-size: 2.5rem;
+   color: var(--black);
+   text-transform: capitalize;
+   text-align: center;
+}
+
+.account-form form p{
+   padding-top: 1rem;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.account-form form p span{
+   color: var(--red);
+}
+
+.account-form form .box{
+   width: 100%;
+   border-radius: .5rem;
+   padding: 1.4rem;
+   font-size: 1.6rem;
+   color: var(--black);
+   background-color: var(--light-bg);
+   margin: 1rem 0;
+}
+
+.account-form form .container{
+   width: 100%;
+   border-radius: .5rem;
+   padding: 1.4rem;
+   margin: 1rem 0;
+   font-size: 1.6rem;
+   color: var(--black);
+   text-overflow: ellipsis;
+   overflow-x: hidden;
+}
+
+.account-form form textarea{
+   height: 15rem;
+   resize: none;
+}
+
+.account-form form .image{
+   height: 20rem;
+   width: 100%;
+   object-fit: contain;
+   margin-top: .5rem;
+}
+
+.account-form form .link{
+   padding: 1rem 0;
+   text-align: center;
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+.account-form form .link a{
+   color: var(--red);
+}
+
+.account-form form .link a:hover{
+   text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+   .view-post .row .col .image{
+      height: 20rem;
+   }
+
+}.placeholder {
+
+}

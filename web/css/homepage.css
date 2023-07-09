@@ -1,0 +1,746 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+/* ---------------------  Website Theme --------------------- */
+
+:root{
+    --hue-1: 150;
+    --hue-2: 219;
+    --gradient-color: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+    --bg-color: hsl(var(--hue-1), 73%, 97%);
+    --main-color-soft: #f2fdf8;
+    --main-color-1: hsl(var(--hue-1), 68%, 50%);
+    --main-color-dark-1: hsl(var(--hue-1), 71%, 39%);
+    --main-color-2: hsl(var(--hue-2), 64%, 39%);
+    --main-color-dark-2: hsl(var(--hue-2), 83%, 33%);
+    --bg-color-1: hsl(var(--hue-1), 73%, 97%);
+    --bg-color-2: #fff;
+    --bg-color-3: hsl(var(--hue-1), 73%, 98%);
+    --bg-color-transparent: rgba(255, 255, 255, 0.821);
+   
+    --text-color: hsl(var(--hue-2), 83%, 30%);
+
+}
+
+
+/* ---------------------  General Styles --------------------- */
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    scrollbar-color: var(--main-color-1) var(--main-color-soft);
+    scrollbar-width: thin;
+}
+
+html{
+    font-size: 100%;
+    overflow-x: hidden ;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5px;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+    background-image: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/bg-main.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+::selection{
+    background-color: hsla(var(--hue-1), 71%, 44%, 0.9);
+    color: #fff;
+}
+
+*::-webkit-scrollbar{
+    height: .5rem;
+    width: 10px;
+ }
+ 
+ *::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: transparent;
+ }
+ 
+ *::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color:#8bdfb9;
+ }
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+button.btn{
+    color: white;
+    background: rgb(71,189,203);
+    background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+    border-radius: 10px;
+}
+
+/* ---------------------  Reusable CSS Code --------------------- */
+
+header .info{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3px 0 ;
+    background-color: var(--main-color-1);
+    color:#fff;
+}
+
+.info .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.info .container .profile-tab{
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info .container .profile-tab .username{
+    margin-right: 15px;
+    color: white;
+    font-weight: 500;
+} 
+
+.info .container .profile-tab .user-ava{
+    cursor: pointer;
+}
+
+.info .container .profile-tab .user-ava img{
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.info .container .profile-tab .uil.uil-angle-down{
+    font-size: 25px;
+    margin-left: -5px;
+}
+
+
+header .nav-bar{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    color:#fff;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 20px;
+    margin: 0 auto;
+    /* background-color: #fff; */
+}
+
+
+.logo img{
+    width: 250px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header .logo{
+    height: 55px;
+    line-height: 55px;
+}
+
+span{
+    /* font-size: 20px; */
+    font-weight: 520;
+    color: var(--text-color);
+}
+
+/* ---------------------  Navbar Styles --------------------- */
+
+
+
+nav.scrolled {
+    background-color: var(--bg-color-transparent);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur();
+}
+
+nav .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}   
+
+nav.scrolled .logo{
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav-link{
+    position: relative;
+    display: inline-block;
+    margin-right: 1rem;
+    /* text-transform: uppercase; */
+    font-size: 1rem;
+    /* letter-spacing: 0.5px; */
+    color: var(--text-color);
+    font-weight: 520;
+    transition: 0.3s;
+}
+
+.nav-link .uil.uil-angle-down{
+    font-size: 20px;
+}
+
+.nav-link::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--main-color-1);
+    bottom: -3px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover{
+    color: var(--main-color-1);
+}
+
+.nav-link:hover::after{
+    width: 100%;
+}
+
+#menu-btn{
+    padding-right: 0.5rem;
+    font-size: 25px;
+    font-weight: 800;
+    cursor: pointer;
+    color: var(--text-color);
+    display: none;
+}
+
+.nav-bar .container .menu-profile-tab{
+    position: absolute;
+    top: 0%; right: 2rem;
+    /* max-width: 160px; */
+    background-color: var(--bg-color);
+    backdrop-filter: blur(.4rem);
+    border-radius: .5rem;
+    transform: scale(0);
+    transform-origin: top right ;
+    transition: .1s linear;
+    background-color: var(--bg-color-transparent);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+} 
+
+.nav-bar .container .menu-profile-tab.active{
+    transform: scale(1);
+}
+
+.nav-bar .container .menu-profile-tab #menu-opt{
+    display: block;
+    padding: .5rem 1.5rem;
+    margin: 1.5rem .5rem;
+    color: var(--text-color);
+    border-radius: .5rem;
+    transition: .2s;
+}
+
+.nav-bar .container .menu-profile-tab #menu-opt:hover{
+    background-color: var(--main-color-1);
+    color: white;
+}
+
+.nav-bar .container .menu-booking-opt{
+    position: absolute;
+    top: 0%; right: 2rem;
+    /* max-width: 160px; */
+    background-color: var(--bg-color);
+    backdrop-filter: blur(.4rem);
+    border-radius: .5rem;
+    transform: scale(0);
+    transform-origin: top right ;
+    transition: .1s linear;
+    background-color: var(--bg-color-transparent);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+} 
+
+.nav-bar .container .menu-booking-opt.active{
+    transform: scale(1);
+}
+
+.nav-bar .container .menu-booking-opt .booking-opt{
+    display: block;
+    padding: .5rem 1.5rem;
+    margin: 1.5rem .5rem;
+    color: var(--text-color);
+    border-radius: .5rem;
+    transition: .2s;
+}
+
+.nav-bar .container .menu-booking-opt .booking-opt:hover{
+    background-color: var(--main-color-1);
+    color: white;
+}
+
+
+
+/* ---------------------  Showcase Area Styles --------------------- */
+
+.showcase-area{
+    padding: 90px 0;
+    width: 100%;
+    height: 770px;
+    overflow: hidden;
+    position: relative; 
+}
+
+.showcase-area img.bg-banner{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    max-height: 800px;
+    object-fit: cover;
+}
+
+.showcase-area .container{
+    max-width: 1300px;
+    text-align: center;
+    height: 650px;
+    padding-right: 200px;
+}
+
+.showcase-area .showcase-info{
+    padding: 40px 40px;
+    margin-top: 30px;
+}
+
+.sub-heading{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    /* padding-left: 300px; */
+}
+
+.heading{
+    color: #fff;
+    font-style: italic;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    font-size: 3rem;
+    line-height: 1.3;                                                                
+}
+
+.showcase-area .container .showcase-logo {
+    max-height: 100px;
+    margin-top: 50px;
+}
+
+.showcase-area .container .service{
+    /* max-width: 900px; */
+}
+
+
+.showcase-area .container .service ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* gap: 10px; */
+    width: 100%;
+}
+
+.showcase-area .container .service .service-btn{
+    /* position: relative; */
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+    border: 2px ;
+    margin: 0 1rem;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: .3s;
+}
+
+.showcase-area .container .service .service-btn:hover{
+    transform: scale(1.1);
+    background-color: var(--bg-color);
+    border: 2px solid var(--text-color);    
+}
+
+
+.showcase-area .container .service .service-btn .icon img{
+    margin: 5px;
+    max-width: 60px;
+}
+
+.showcase-area .container .service .service-btn .text{
+    font-weight: 600;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    justify-content: center;
+}
+
+/* ---------------------  Search Bar Styles --------------------- */
+
+.search-bar{
+    margin: 50px auto;
+}
+
+.search-bar .container{
+    text-align: center;
+}
+
+h1 {
+    padding: 0 auto;
+    color: var(--main-color-1);
+    /* font-size: 1.5rem; */
+    /* font-weight: 600; */
+    margin-bottom: 0.5rem;
+}
+
+.search{
+    min-height: 3.5rem;
+    max-width: 900px;
+    background-color: white;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid var(--main-color-dark-1);
+    font-size: 20px;
+    /* cursor: pointer; */
+}
+
+.search input{
+    padding-left: 20px;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-family: inherit;
+    width: 400px;
+}
+
+.btn-search{
+    position: relative;
+    min-height: 2.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn-search:hover::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-height: 2.7rem;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    opacity: 30%;
+    transition: 0.3s;
+}
+
+/* ---------------------  Doctor Styles --------------------- */
+.bac-si-noi-bat h1{
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+.bac-si-noi-bat{
+    position: relative;
+    margin: 50px auto;
+}
+
+.bac-si-noi-bat .container{
+    /* text-align: center; */
+    align-items: center;
+    position: relative;
+    height: 300px;
+}
+
+.bac-si-noi-bat .container .dr-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 450px;
+    height: 250px;
+    padding: 10px;
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+    transition: .2s;
+}
+
+.bac-si-noi-bat .container .dr-card:hover{
+    transform: scale(1.05);
+}
+
+.bac-si-noi-bat .container .dr-card .content h3{
+    color: var(--text-color);
+}
+
+.bac-si-noi-bat .container .dr-card .content .trinh-do, 
+.bac-si-noi-bat .container .dr-card .content .chuyen-khoa,
+.bac-si-noi-bat .container .dr-card .content .phong-kham{
+    display: flex;
+    align-items: center;    
+    padding-top: 20px;
+}
+
+.bac-si-noi-bat .container .dr-card .content i{
+    margin-right: 10px;
+}
+
+.bac-si-noi-bat .container .dr-card .image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg') no-repeat center / cover;
+    border: 4px solid #4edd95;
+}
+
+.swiper-pagination-bullet{
+    width: 30px;
+    height: 5px;
+    border-radius: 5px;
+    background: #4edd95;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: rgb(71,189,203);
+    background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+}
+
+/* ---------------------  Sản Phẩm Y Tế --------------------- */
+
+.sp-y-te {
+    text-align: center;
+}
+.sp-y-te .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* gap: 10px; */
+    width: 100%;
+    margin: 30px auto;
+}
+
+.sp-y-te .container .product-btn{
+    /* position: relative; */
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+    border: 2px ;
+    margin: 0 1rem;
+    padding: 8px;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: .3s;
+}
+
+.sp-y-te .container .product-btn:hover{
+    transform: scale(1.1);
+    background-color: var(--bg-color);
+    border: 2px solid var(--text-color);    
+}
+
+
+.sp-y-te .container .product-btn .image img{
+
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.sp-y-te .container .product-btn .text{
+    /* font-weight: 600; */
+    color: var(--text-color);
+    /* letter-spacing: 0.5px; */
+    justify-content: center;
+    font-size: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------  Footer Styles --------------------- */
+footer{
+    padding: 2rem 0;
+    background-color: var(--main-color-1);
+}
+
+footer .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer .container .logo{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+}
+
+footer .container .contact p.text{
+    color: #fff;
+    padding: 10px;
+}
+
+footer .container .contact p.text i{
+    margin-right: 10px;
+}
+
+ul.social-media{
+    display: flex;
+}
+
+.social-link{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 1rem;
+    background: white;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ---------------------  Media Queries --------------------- */
+
+@media (max-width:991px){
+
+    html{
+        font-size: 90%;
+    }
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    header .nav-bar .container{
+        position: relative;
+    }
+
+    header .nav-bar .container .links{
+        position: absolute;
+        top: 110%; right: 2rem;
+        background-color: var(--bg-color);
+        backdrop-filter: blur(.4rem);
+        border-radius: .5rem;
+        transform: scale(0);
+        transform-origin: top right ;
+        transition: .2s linear;
+    }
+
+    header .nav-bar .container .links.active{
+        transform: scale(1);
+    }
+
+    header .nav-bar .container .links a{
+        display: block;
+        padding: .5rem 1.5rem;
+        margin: 1.5rem .5rem;
+        border-radius: .5rem;
+    }
+
+    header .nav-bar .container .links a::after{
+        
+    }
+}
+
+
+@media (max-width:450px){
+
+    html{
+        font-size: 80%;
+    }
+}
+
+

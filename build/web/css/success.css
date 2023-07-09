@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --hue-1: 150;
+  --hue-2: 219;
+  --gradient-color: linear-gradient(90deg, rgba(78,221,149,1) 31%, rgba(15,204,255,1) 100%);
+  --bg-color: hsl(var(--hue-1), 73%, 97%);
+  --main-color-1: hsl(var(--hue-1), 68%, 50%);
+  --main-color-dark-1: hsl(var(--hue-1), 71%, 39%);
+  --main-color-2: hsl(var(--hue-2), 64%, 39%);
+  --main-color-dark-2: hsl(var(--hue-2), 83%, 33%);
+  --bg-color-1: hsl(var(--hue-1), 73%, 97%);
+  --bg-color-2: #fff;
+  --bg-color-3: hsl(var(--hue-1), 73%, 98%);
+  --bg-color-transparent: rgba(255, 255, 255, 0.821);
+  
+  --text-color: hsl(var(--hue-2), 83%, 30%);
+
+}
+
+
+*, *::before, *::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+html{
+  font-size: 62,5%;
+  overflow-x: hidden ;
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
+body{
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  font-family: "Montserrat", sans-serif;
+  background-image: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/bg-info.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+::selection{
+  background-color: hsla(var(--hue-1), 71%, 44%, 0.9);
+  color: #fff;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+header .info{
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--main-color-1);
+  color:#fff;
+}
+
+.info .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.info .container .profile-tab{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info .container .profile-tab .username{
+  margin-right: 15px;
+  color: white;
+  font-weight: 520;
+} 
+
+.info .container .profile-tab .user-ava img{
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.info .container .profile-tab .uil.uil-angle-down{
+  font-size: 25px;
+  margin-left: -5px;
+}
+
+.info{
+  position: relative;
+  width: 100%;
+  padding: 10px 100px;
+  margin: 0 auto;
+  background-color: var(--main-color-1);
+  color:#fff;
+}
+.container{
+  position: relative;
+  width: 100%;
+  padding: 0 180px;
+  margin: 0 auto;
+  /* background-color: #fff; */
+}
+
+.logo img{
+  width: 250px;
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+header .logo{
+  height: 55px;
+  line-height: 55px;
+}
+nav{
+  background-color: #fff;
+}
+nav.scrolled {
+  background-color: var(--bg-color-transparent);
+  box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur();
+}
+nav.scrolled {
+  background-color: var(--bg-color-transparent);
+  box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur();
+}
+
+nav.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: 0.5s;
+}   
+
+nav.scrolled .logo{
+  height: 50px;
+  line-height: 50px;
+}
+
+.info ul{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login{
+  display: inline-block;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-weight: 400;
+}
+
+
+.links ul{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-link{
+  position: relative;
+  display: inline-block;
+  margin: 0 1rem;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  font-weight: 520;
+  transition: 0.3s;
+}
+
+.nav-link::after{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(--main-color-1);
+  bottom: -3px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.nav-link:hover{
+  color: var(--main-color-1);
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+
+.pagination{
+  padding: 30px;
+}
+
+.pagination .container{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 10px 40px;
+  border-radius: 7px;
+  box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+}
+
+.pagination ul{
+  margin: 0 30px;
+}
+
+.pagination ul li{
+  display: inline-block;
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination ul li.active{
+  color: #fff;
+  background-color: var(--main-color-1);
+  background-repeat: no-repeat;
+}
+
+.pagination .btn{
+  display: inline-block;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+footer{
+  padding: 4rem 0;
+}
+
+footer .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+ul.social-media{
+  display: flex;
+}
+
+.social-link{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 1rem;
+  background: rgb(71,189,203);
+  background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+  
+  .image-container {
+    text-align: center;
+    height:7cm;
+    width: 7cm;
+  }
+  figcaption {
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    margin-top: 30px;
+  }
+  .trang-button {
+    color: #fff;
+    background: rgb(71,189,203);
+    background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    
+ } 
+.kham-button {
+  color: #fff;
+  background: rgb(71,189,203);
+  background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+ 

@@ -1,0 +1,384 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* ---------------------  Website Theme --------------------- */
+
+:root{
+    --hue-1: 150;
+    --hue-2: 219;
+    --gradient-color: linear-gradient(90deg, rgba(78,221,149,1) 31%, rgba(15,204,255,1) 100%);
+    --bg-color: hsl(var(--hue-1), 73%, 97%);
+    --main-color-1: hsl(var(--hue-1), 68%, 50%);
+    --main-color-dark-1: hsl(var(--hue-1), 71%, 39%);
+    --main-color-2: hsl(var(--hue-2), 64%, 39%);
+    --main-color-dark-2: hsl(var(--hue-2), 83%, 33%);
+    --bg-color-1: hsl(var(--hue-1), 73%, 97%);
+    --bg-color-2: #fff;
+    --bg-color-3: hsl(var(--hue-1), 73%, 98%);
+    --bg-color-transparent: rgba(255, 255, 255, 0.821);
+    /*--heading--color: ;*/
+    --text-color: hsl(var(--hue-2), 83%, 30%);
+
+}
+
+
+/* ---------------------  General Styles --------------------- */
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+    font-family: "Montserrat", sans-serif;
+    background-image: url('../assets/ava_v2.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+::selection{
+    background-color: hsla(var(--hue-1), 71%, 44%, 0.9);
+    color: #fff;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+/* ---------------------  Reusable CSS Code --------------------- */
+
+.info{
+    position: relative;
+    width: 100%;
+    padding: 10px 100px;
+    margin: 0 auto;
+    background-color: var(--main-color-1);
+    color:#fff;
+}
+.container{
+    position: relative;
+    width: 100%;
+    padding: 0 180px;
+    margin: 0 auto;
+    /* background-color: #fff; */
+}
+
+.logo img{
+    width: 250px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header .logo{
+    height: 55px;
+    line-height: 55px;
+}
+
+/* ---------------------  Navbar Styles --------------------- */
+
+nav{
+    background-color: #fff;
+}
+
+nav.scrolled {
+    background-color: var(--bg-color-transparent);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur();
+}
+
+nav.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 0.3s;
+}   
+
+nav.scrolled .logo{
+    height: 50px;
+    line-height: 50px;
+}
+
+.info ul{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login{
+    display: inline-block;
+    /* text-transform: uppercase; */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+    font-weight: 400;
+}
+
+
+.links ul{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link{
+    position: relative;
+    display: inline-block;
+    margin: 0 1rem;
+    /* text-transform: uppercase; */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    font-weight: 520;
+    transition: 0.3s;
+}
+
+.nav-link::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--main-color-1);
+    bottom: -3px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover{
+    color: var(--main-color-1);
+}
+
+.nav-link:hover::after{
+    width: 100%;
+}
+
+
+/* ---------------------  Showcase Area Styles --------------------- */
+
+.showcase-area{
+    padding: 90px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ---------------------  Search Bar Styles --------------------- */
+
+
+.search-bar{
+    background: rgb(78,221,149);
+    background: linear-gradient(90deg, rgba(78,221,149,1) 31%, rgba(15,204,255,1) 100%);
+    display: block;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: var(--text-color);
+    /* font-size: 1.5rem; */
+    /* font-weight: 600; */
+    margin-bottom: 0.5rem;
+}
+
+p.text{
+    color: var(--text-color);
+}
+
+.search{
+    min-height: 2.7rem;
+    background-color: var(--bg-color);
+    margin: 2rem 0.5rem 1.7rem;
+    display: grid;
+    grid-template-columns: 2.7rem 1fr;
+    align-items: center;
+    text-align: center;
+    border-radius: 50px;
+    /* cursor: pointer; */
+}
+
+.search input{
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-family: inherit;
+}
+
+/* ---------------------  Gallery Styles --------------------- */
+
+h2{
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.dr-link{
+    color: var(--text-color);
+}
+
+.doctor-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    row-gap: 40px;
+    padding-left: 50px;
+    
+}
+
+.dr-card{
+    position: relative;
+    width: 300px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+}
+
+.dr-card,
+.dr-info{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.dr-image{
+    width: 100%;
+}
+
+.dr-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: url("https://img.freepik.com/free-photo/girl-sky_1340-27755.jpg") no-repeat center / cover;
+    border: 4px solid #4edd95;
+    position: absolute;
+    top: 15px;
+}
+
+.dr-info{
+    padding-top: 220px;
+}
+
+h3{
+    padding: 15px;
+}
+
+p.khoa{
+    color: var(--text-color);
+    padding: 0.5rem 0.5rem;
+    background-color: var(--bg-color-1);
+}
+
+p.cost{
+    position: absolute;
+    bottom: 80px;
+}
+
+.secondary-btn{
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    padding: 0.9rem 1.75rem;
+    border-radius: 20px;
+    background: rgb(78,221,149);
+    background: linear-gradient(90deg, rgba(78,221,149,1) 31%, rgba(15,204,255,1) 100%);
+    color: #fff;
+    /* font-size: 0.85rem; */
+    text-transform: capitalize;
+}
+
+/* ---------------------  Pagination Styles --------------------- */
+
+.pagination{
+    padding: 30px;
+}
+
+.pagination .container{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 10px 40px;
+    border-radius: 7px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+}
+
+.pagination ul{
+    margin: 0 30px;
+}
+
+.pagination ul li{
+    display: inline-block;
+    margin: 0 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagination ul li.active{
+    color: #fff;
+    background-color: var(--main-color-1);
+    background-repeat: no-repeat;
+}
+
+.pagination .btn{
+    display: inline-block;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ---------------------  Footer Styles --------------------- */
+footer{
+    padding: 4rem 0;
+}
+
+footer .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+ul.social-media{
+    display: flex;
+}
+
+.social-link{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 1rem;
+    background-color: var(--main-color-1);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
