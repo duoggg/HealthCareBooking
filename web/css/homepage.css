@@ -209,6 +209,7 @@ nav.scrolled .logo{
     color: var(--text-color);
     font-weight: 520;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .nav-link .uil.uil-angle-down{
@@ -276,25 +277,12 @@ nav.scrolled .logo{
     color: white;
 }
 
-.nav-bar .container .menu-booking-opt{
-    position: absolute;
-    top: 0%; right: 2rem;
-    /* max-width: 160px; */
-    background-color: var(--bg-color);
-    backdrop-filter: blur(.4rem);
-    border-radius: .5rem;
-    transform: scale(0);
-    transform-origin: top right ;
-    transition: .1s linear;
-    background-color: var(--bg-color-transparent);
-    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
-} 
 
-.nav-bar .container .menu-booking-opt.active{
+.nav-bar .container .links .menu-booking-opt.active{
     transform: scale(1);
 }
 
-.nav-bar .container .menu-booking-opt .booking-opt{
+.nav-bar .container .links .menu-booking-opt .booking-opt{
     display: block;
     padding: .5rem 1.5rem;
     margin: 1.5rem .5rem;
@@ -303,7 +291,7 @@ nav.scrolled .logo{
     transition: .2s;
 }
 
-.nav-bar .container .menu-booking-opt .booking-opt:hover{
+.nav-bar .container .links .menu-booking-opt .booking-opt:hover{
     background-color: var(--main-color-1);
     color: white;
 }

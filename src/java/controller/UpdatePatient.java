@@ -106,7 +106,7 @@ public class UpdatePatient extends HttpServlet {
             
                 
                 cdb.update(id,name,yearint,address,phone,email,sex);
-                response.sendRedirect("lispa");
+                response.sendRedirect("admin");
                 
                 
             

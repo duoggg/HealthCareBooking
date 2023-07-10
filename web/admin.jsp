@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="homepage.jsp">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -169,7 +169,7 @@
 <!--            <input type="submit" onclick="logout()" value="Có" class="form-submit">-->
        
 
-        <a href="#" class="form-submit">  Không </a>
+        <a href="admin" class="form-submit">  Không </a>
 <!--        <input type="submit"  value="Không " class="form-submit">-->
 <!--<a href="#" class="form-submit"><span>Kh</span> </a>-->
             

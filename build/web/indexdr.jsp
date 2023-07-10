@@ -65,7 +65,7 @@
             <div class="links">
                 <ul>
                     <li>
-                        <a href="#" class="nav-link">Đặt khám</a>
+                        <a href="homepage.jsp" class="nav-link">Đặt khám</a>
                     </li>
                     <li>
                         <a href="<% if(session.getAttribute("myAccount")!=null) {%>info.jsp<%}%>" class="nav-link">Hồ sơ sức khỏe</a>

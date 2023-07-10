@@ -16,6 +16,17 @@ document.querySelector('#user-ava').onclick = () =>{
   menu_profile.classList.toggle('active');
 }
 
+/* ---------------------  Option booking bar --------------------- */
+let menu_booking = document.querySelector('.nav-bar .container .links .menu-booking-opt');
+
+document.querySelector('.nav-bar .container .links #nav-booking').onclick = () =>{
+  menu_booking.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+  menu_booking.classList.remove('active');
+}
+
 /* ---------------------  Menu bar --------------------- */
 
 let navlink = document.querySelector('header .nav-bar .container .links');

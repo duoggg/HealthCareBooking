@@ -5,6 +5,8 @@
 
 package controller;
 
+import dal.DichVuDao;
+import dal.ShowBS;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,14 +14,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import java.util.List;
+import model.BacSi;
+import model.DichVu;
 
 /**
  *
  * @author DELL
  */
-@WebServlet(name="Logout", urlPatterns={"/logout"})
-public class Logout extends HttpServlet {
+@WebServlet(name="SearchSer", urlPatterns={"/searchser"})
+public class SearchSer extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +40,10 @@ public class Logout extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Logout</title>");  
+            out.println("<title>Servlet SearchSer</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Logout at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet SearchSer at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,12 +60,7 @@ public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         HttpSession session = request.getSession();
-//        String a = (String) session.getAttribute("myAccount");
-//        if(a!=null){
-            session.removeAttribute("myAccount");
-            response.sendRedirect("homepage.jsp");
-       // }
+        processRequest(request, response);
     } 
 
     /** 
@@ -74,7 +73,40 @@ public class Logout extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String nameser = request.getParameter("sername");
+       DichVuDao sbs = new DichVuDao();
+        List<DichVu> bs ;
+       if(nameser!=null){
+            bs = sbs.getDichVuByName(nameser);
+           
+    
+           
+       }
+       else{
+           bs = sbs.getAll();
+           
+       }
+        int page,numberpage = 4;
+         int size = bs.size();
+         int number = (size%numberpage==0?(size/numberpage):((size/numberpage)+1));
+//         String xpage2 = request.getParameter("page");
+//           if(xpage2==null){
+                 page =1;
+            
+           
+//       }else{
+//            page= Integer.parseInt(xpage2);    //bs 
+//           
+//        }
+            int start; int end;
+        start = (page-1)*numberpage;
+        end = Math.min(page*numberpage,size);
+         List<DichVu> listdv = sbs.getListByPage(bs, start, end);
+         
+        request.setAttribute("service", listdv);
+        request.setAttribute("page",page );
+        request.setAttribute("num",number);
+        request.getRequestDispatcher("indexck.jsp").forward(request, response);
     }
 
     /** 

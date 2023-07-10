@@ -105,7 +105,7 @@ public class UpdateDoc extends HttpServlet {
             
                 
                 cdb.update(id_raw,name,pass,idspe,yearint,room,phone,email,link);
-                response.sendRedirect("lisdoc");
+                response.sendRedirect("admin");
                 
                 
             

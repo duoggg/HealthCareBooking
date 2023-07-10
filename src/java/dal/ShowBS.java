@@ -123,11 +123,12 @@ public class ShowBS extends DBContext {
     }
       public List<BacSi> getBacSiByName(String name){
           List<BacSi> list = new ArrayList<>();
-           String sql = "select * from BacSi where hoten like ? ";
+           String sql = "select * from BacSi bs join Khoa k on bs.IDKhoa = k.IDKhoa where hoten like ? or TenKhoa like ?";
         
         try{
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1,"%"+name+"%");
+            st.setString(2,"%"+name+"%");
             ResultSet rs = st.executeQuery();
             while(rs.next()){
                 BacSi c = new BacSi();

@@ -19,7 +19,22 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <style>
+        .nav-bar .container .links .menu-booking-opt{
+    position: absolute;
+    top: 100%; right: 28rem;
+    /* max-width: 160px; */
+    background-color: var(--bg-color);
+    backdrop-filter: blur(.4rem);
+    border-radius: .5rem;
+    transform: scale(0);
+    transform-origin: top ;
+    transition: .1s linear;
+    background-color: var(--bg-color-transparent);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+} 
 
+    </style>
     <!-- CSS Files -->
     <link rel="stylesheet" href="./css/homepage.css">
     
@@ -29,53 +44,74 @@
     <!-- Header -->
 
     <header>
-        <nav class="info">
+       
+                    
+                     <nav class="info">
             <div class="container">
                 <div class="hotline"><i class="uil uil-phone"></i> Hotline đặt khám : </div>
-<!--                 <li>
-                   
-                </li>-->
                 <div class="profile-tab">
-                     <%
-                    if (session.getAttribute("myAccount") == null){
+                     <% String idpa = (String)session.getAttribute("myAccount");
+                    if (idpa == null||idpa.equals("admin")){
                     
                     out.println(" <a href=\"login.jsp\" class=\"username\">Đăng nhập</a> | <a href=\"info.jsp\" class=\"login\">Đăng ký</a>");
                     }
                     else{
-                         String idpa = (String)session.getAttribute("myAccount");
+                         
+                         
                          BenhNhanDao c = new BenhNhanDao();
+                         
                          BenhNhan bn = c.getBenhNhanById(idpa);
                         out.println("<a href=\"info.jsp\" class=\"username\">Xin Chào "+bn.getUsername() + " !</a>");
                     }
                     %>
-                    <div class="user-ava">
+                    <span class="username"></span>
+                    <div class="user-ava" id="user-ava">
                         <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/ava-users.png">
                         <i class="uil uil-angle-down"></i>
+                    </div>
                     </div>
                 </div>
             </div>
         </nav>
         <nav class="nav-bar">
             
-            <div class="container">
+           <div class="container">
                 <a href="#" class="logo">
                     <img src="./assets/ava_v2.png" title="Booking Health Care Web"/>
                 </a>
-                <div class="links">
-                    <a href="idlisdoc" class="nav-link">Đặt khám <i class="uil uil-angle-down"></i></a>
-                    <a href="<% if(session.getAttribute("myAccount")!=null) {%>info.jsp<%}%>" class="nav-link">Hồ sơ cá nhân</a>
+               <div class="links">
+                    <a class="nav-link" id="nav-booking">Đặt khám <i class="uil uil-angle-down"></i></a>
+                      <%
+                        if(session.getAttribute("myAccount")!=null){
+                        %>
+                    <a href="info.jsp" class="nav-link">Hồ sơ cá nhân</a>
+                     <%
+                        }
+                        %>
                     <a href="#" class="nav-link">Hỏi đáp bác sĩ</a>
                     <a href="#" class="nav-link">Sản phẩm y tế</a>
+                    <div class="menu-booking-opt">
+                        <a href="idlisdoc" class="booking-opt">Bác sĩ</a>
+                        <a href="idlisser" class="booking-opt">Gói khám</a>
+                    </div>
                 </div>
+           
                 <div id="menu-btn"><i class="uil uil-bars"></i></div>
+                <%
+                        if(session.getAttribute("myAccount")!=null){
+                        %>
                 <div class="menu-profile-tab">
-                    <a href="#" id="menu-opt"><i class="uil uil-user"></i>Hồ sơ cá nhân</a>
+                    <a href="info.jsp" id="menu-opt"><i class="uil uil-user"></i>Hồ sơ cá nhân</a>
                     <a href="#" id="menu-opt"><i class="uil uil-schedule"></i>Lịch sử đặt khám</a>
                     <a href="#" id="menu-opt"><i class="uil uil-shopping-cart"></i>Đơn hàng</a>
                     <a href="#" id="menu-opt"><i class="uil uil-question-circle"></i>Câu hỏi của tôi</a>
                     <a href="#" id="menu-opt"><i class="uil uil-keyhole-circle"></i>Đổi mật khẩu</a>
-                    <a href="#" id="menu-opt"><i class="uil uil-signout"></i>Đăng xuất</a>
+                    <a href="logout" id="menu-opt"><i class="uil uil-signout"></i>Đăng xuất</a>
                 </div>
+                <%
+                        }
+                        %>
+
             </div>
         </nav>
     </header>

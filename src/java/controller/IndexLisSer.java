@@ -5,6 +5,8 @@
 
 package controller;
 
+import dal.DichVuDao;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,14 +14,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import java.util.List;
+
+import model.DichVu;
 
 /**
  *
  * @author DELL
  */
-@WebServlet(name="Logout", urlPatterns={"/logout"})
-public class Logout extends HttpServlet {
+@WebServlet(name="IndexLisSer", urlPatterns={"/idlisser"})
+public class IndexLisSer extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +40,10 @@ public class Logout extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Logout</title>");  
+            out.println("<title>Servlet IndexLisSer</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Logout at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet IndexLisSer at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,12 +60,29 @@ public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         HttpSession session = request.getSession();
-//        String a = (String) session.getAttribute("myAccount");
-//        if(a!=null){
-            session.removeAttribute("myAccount");
-            response.sendRedirect("homepage.jsp");
-       // }
+       DichVuDao c = new DichVuDao();
+        List<DichVu> list1 = c.getAll();
+         int page,numberpage = 4;
+         int size = list1.size();
+         int number = (size%numberpage==0?(size/numberpage):((size/numberpage)+1));
+         String xpage2 = request.getParameter("page");
+           if(xpage2==null){
+                 page =1;
+            
+           
+       }else{
+            page= Integer.parseInt(xpage2);    //bs 
+           
+        }
+            int start; int end;
+        start = (page-1)*numberpage;
+        end = Math.min(page*numberpage,size);
+         List<DichVu> listdv = c.getListByPage(list1, start, end);
+         
+        request.setAttribute("service", listdv);
+        request.setAttribute("page",page );
+        request.setAttribute("num",number);
+        request.getRequestDispatcher("indexck.jsp").forward(request, response);
     } 
 
     /** 

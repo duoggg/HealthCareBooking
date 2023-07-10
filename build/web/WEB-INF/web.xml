@@ -60,6 +60,14 @@
         <servlet-name>IndexLisDoc</servlet-name>
         <servlet-class>controller.IndexLisDoc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IndexLisSer</servlet-name>
+        <servlet-class>controller.IndexLisSer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchSer</servlet-name>
+        <servlet-class>controller.SearchSer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowDoc</servlet-name>
         <url-pattern>/show</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>IndexLisDoc</servlet-name>
         <url-pattern>/idlisdoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexLisSer</servlet-name>
+        <url-pattern>/idlisser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchSer</servlet-name>
+        <url-pattern>/searchser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
