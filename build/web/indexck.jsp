@@ -42,8 +42,12 @@
             </a>
             <div class="links">
                 <ul>
+                     <li>
+                        <a href="homepage.jsp" class="nav-link">Trang Chủ</a>
+                    </li>
+                    
                     <li>
-                        <a href="homepage.jsp" class="nav-link">Đặt khám</a>
+                        <a href="idlisdoc" class="nav-link">Đặt khám</a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">Hồ sơ sức khỏe</a>
@@ -51,9 +55,7 @@
                     <li>
                         <a href="#" class="nav-link">Hỏi đáp bác sĩ</a>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link">Dịch vụ khẩn cấp</a>
-                    </li>
+                   
                 </ul>
             </div>
         </nav>
@@ -112,7 +114,7 @@
                                
                                <a href="idlisser?id="+<%=id%> class="service-card">
                             <div class="service-image">
-                                <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/dich-vu.jpg" alt="">
+                                <img src="<%=p1.getLink()%>" alt="">
                             </div>
                             <div class="service-info">
                                 <h3><p class="name"><%=p1.getTen()%></p></h3>

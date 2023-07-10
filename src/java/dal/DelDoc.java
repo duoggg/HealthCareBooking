@@ -61,7 +61,7 @@ public class DelDoc extends HttpServlet {
             String id = (id_raw);
             ShowBS c = new ShowBS();
             c.delete(id);
-            response.sendRedirect("lisdoc");
+            response.sendRedirect("admin");
             
         }catch(NumberFormatException e){
             

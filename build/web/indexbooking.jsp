@@ -57,7 +57,7 @@
                     
                     if (session.getAttribute("myAccount") == null){
                     
-                    out.println(" <a href=\"login.jsp\" class=\"login\">Đăng nhập</a> | <a href=\"info.jsp\" class=\"login\">Đăng ký</a>");
+                    out.println(" <a href=\"login.jsp\" class=\"login\">Đăng nhập|Đăng ký </a>");
                     }
                     else{
                          String idpa = (String)session.getAttribute("myAccount");

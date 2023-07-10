@@ -61,6 +61,32 @@ public class LichDatDao extends DBContext  {
         return list;   
     }
     
+    public List<LichDat> getLichDatByIDBenhNhan(String IdBenhNhan){
+        List<LichDat> list = new ArrayList<>();
+        String sql = "select * from LichDat where IDBenhNhan = ? ";
+        
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1,IdBenhNhan);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                LichDat c = new LichDat();
+                c.setIDBenhNhan(rs.getString("IDBenhNhan"));
+                c.setIDLich(rs.getInt("IDLich"));
+                c.setNgay(rs.getString("NgayDatLich"));
+                
+                
+                list.add(c);
+            }
+            
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        
+        return list;   
+    }
+    
      public List<LichDat> getListByPage(List<LichDat> list, int start, int end){
           ArrayList<LichDat> arr = new ArrayList<>();
           for(int i =start;i<end;i++){
@@ -68,4 +94,12 @@ public class LichDatDao extends DBContext  {
           }
           return arr;
       }
+     
+       public  static void main(String[] args) {
+           LichDatDao c = new LichDatDao();
+           List<LichDat> d = c.getLichDatByIDBenhNhan("BN001");
+           LichDat q = d.get(0);
+           System.out.println(d.size());
+       }
+       
 }

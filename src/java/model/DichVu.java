@@ -13,17 +13,19 @@ public class DichVu {
     private String ten ;
     private int IDKhoa ;
     private int GiaKham ;
+    private String Link;
     
      public DichVu() {
        
     }
      
      
-      public DichVu(int IDService, String ten, int IDKhoa, int GiaKham) {
+      public DichVu(int IDService, String ten, int IDKhoa, int GiaKham, String Link) {
           this.IDService = IDService;
           this.ten = ten;
           this.IDKhoa = IDKhoa;
           this.GiaKham = GiaKham;
+          this.Link = Link;
          
        
     }
@@ -58,6 +60,14 @@ public class DichVu {
 
     public void setGiaKham(int GiaKham) {
         this.GiaKham = GiaKham;
+    }
+
+    public String getLink() {
+        return Link;
+    }
+
+    public void setLink(String Link) {
+        this.Link = Link;
     }
       
 }

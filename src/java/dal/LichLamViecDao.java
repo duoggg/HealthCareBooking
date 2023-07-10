@@ -7,6 +7,8 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.BacSi;
+import model.LichLamViec;
 
 
 /**
@@ -33,5 +35,36 @@ public class LichLamViecDao extends DBContext{
         }
        
     return -1;
-  }  
+  }
+    
+    public LichLamViec getLichLamViecWithID(int idLich){
+        String sql = "select * from LichLamViec where IDLich = ?";
+        
+       try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1,idLich);
+           
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+               LichLamViec c = new LichLamViec();
+                 c.setIDBacSi(rs.getString("IDBacSi"));
+                 c.setIDCa(rs.getInt("IDCa"));
+                c.setNgay(rs.getString("Ngay"));
+                c.setIDLich(rs.getInt("IDLich"));
+                c.setSoLuong(rs.getInt("soLuong"));
+                c.setSoLuong(rs.getInt("soluongMax"));
+                
+                return c;
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+        
+        }
+        return null;
+  }
+    
+    
+        
+   
+    
 }

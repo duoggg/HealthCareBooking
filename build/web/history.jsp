@@ -1,12 +1,18 @@
 <%-- 
-    Document   : indexck
-    Created on : Jul 10, 2023, 10:41:13 AM
+    Document   : history
+    Created on : Jul 10, 2023, 4:43:54 PM
     Author     : DELL
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import = "model.DichVu"%>
-<%@page import = "dal.DichVuDao"%>
+<%@page import = "model.BacSi"%>
+<%@page import = "dal.ShowBS"%>
+<%@page import = "dal.BenhNhanDao"%>
+<%@page import = "model.BenhNhan"%>
+<%@page import = "model.LichDat"%>
+<%@page import = "dal.LichDatDao"%>
+<%@page import = "dal.LichLamViecDao"%>
+<%@page import = "model.LichLamViec"%>
 <%@page import = "java.util.List"%>
 
 <%@page import = "java.util.ArrayList"%>
@@ -21,7 +27,7 @@
     <title>Đặt khám chuyên khoa qua Health Care - online service</title>
     <!-- CSS Files -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <link rel="stylesheet" href="./css/chuyenkhoa.css">
+    <link rel="stylesheet" href="./css/history.css">
 </head>
 
 <body>
@@ -31,8 +37,23 @@
                 <li>
                     <i class="uil uil-phone"></i> Hotline đặt khám : 
                 </li>
-                <li>
-                    <a href="#" class="login">Đăng nhập</a> | <a href="#" class="login">Đăng ký</a>
+                <li id="login" >
+                <% 
+                    
+                    if (session.getAttribute("myAccount") == null){
+                    
+                    out.println(" <a href=\"login.jsp\" class=\"login\">Đăng nhập</a> | <a href=\"info.jsp\" class=\"login\">Đăng ký</a>");
+                    }
+                    else{
+                         String idpa = (String)session.getAttribute("myAccount");
+                         BenhNhanDao c = new BenhNhanDao();
+                         BenhNhan bn = c.getBenhNhanById(idpa);
+                        out.println("<a href=\"info.jsp\" class=\"login\">Xin Chào "+bn.getUsername() + " !</a>");
+                    }
+                    
+                    %>
+                    
+<!--                    <a href="login.jsp" class="login">Đăng nhập</a> | <a href="info.jsp" class="login">Đăng ký</a>-->
                 </li>
             </ul>
         </nav>
@@ -42,12 +63,11 @@
             </a>
             <div class="links">
                 <ul>
-                     <li>
+                    <li>
                         <a href="homepage.jsp" class="nav-link">Trang Chủ</a>
                     </li>
-                    
                     <li>
-                        <a href="idlisdoc" class="nav-link">Đặt khám</a>
+                        <a href="#" class="nav-link">Đặt khám</a>
                     </li>
                     <li>
                         <a href="#" class="nav-link">Hồ sơ sức khỏe</a>
@@ -55,7 +75,7 @@
                     <li>
                         <a href="#" class="nav-link">Hỏi đáp bác sĩ</a>
                     </li>
-                   
+                    
                 </ul>
             </div>
         </nav>
@@ -67,94 +87,92 @@
                 <div class="container">
                     <h1>Đặt khám trước qua Health Care - online service</h1>
                     <p class="text">Để được đón tiếp ưu tiên tại bệnh viện và được tư vấn với bác sĩ giỏi</p>
-                    <form id="myForm" name="fff" action="searchser" method="post">
                     <div class="search">
                         <i class="uil uil-search"></i>
-                        <input type="text" name="sername" placeholder="Tên dịch vụ, mô tả dịch vụ">
+                        <input type="text" placeholder="Tên dịch vụ, mô tả dịch vụ">
                     </div>
-                          </form>
                 </div>
             </sub-section>
             <sub-section class="service">
                 <div class="container">
                     <div class="service-header">
-                        <h2>Chọn dịch vụ đặt khám</h2>
+                        <h2 >Lịch sử đặt khám </h2>
                         <div class="filter">                         
                         </div>
                     </div>
                     <div class="service-list">
-                         <%  
-                                DichVuDao d = new DichVuDao();
-                                 List<DichVu> bs = d.getAll();
-                                 int p =   (int)request.getAttribute("page");
-                                 int num = (int)request.getAttribute("num");
-                                 
-                                 if(request.getAttribute("service")!=null){
-                                    bs= (List<DichVu>)request.getAttribute("service");
-                                }
-                                 
-
-                                
+                       
+                        
+                         <%  LichDatDao d = new LichDatDao();
+                               String id = (String)session.getAttribute("myAccount");
+                               List<LichDat> ld =  d.getLichDatByIDBenhNhan(id);
+                               
+              
                 %>
-                 <%
-                           if(bs.size()==0){
-                           out.println("<div class=\"dr-filter\"> Không tìm thấy  </div>");
+
+                        <%
+                           if(ld.size()==0){
+                           out.println("<div class=\"service-card\">Không có lịch đặt nào của!</div>");
                            }
                            
-                           for(int i =0;i<4&&i<bs.size();i++){
+                           for(int i =0;i<ld.size();i++){
                            
-                           DichVu p1 = bs.get(i);
-                           DichVuDao sbs = new DichVuDao();
-                            int id = p1.getIDService();
-                          String tenKhoa = sbs.getKhoaByIdDichVu(id);
+                           LichDat p1 = ld.get(i);
+                           LichLamViecDao q = new LichLamViecDao ();
+                           LichLamViec llv = q.getLichLamViecWithID(p1.getIDLich());
+                           ShowBS c = new ShowBS();
+                           BacSi bs = c.getBacSiWithIDLich(p1.getIDLich());
+                                 
+                           
+                           String tenKhoa = c.getKhoaByIdBacSi(bs.getIDBacSi());
                            
                           %>
-                          
-                              
-                               
-                               <a href="idlisser?id="+<%=id%> class="service-card">
+                        
+                        <a class="service-card">
                             <div class="service-image">
-                                <img src="<%=p1.getLink()%>" alt="">
+                                <img src="<%=bs.getLink()%>" alt="">
                             </div>
                             <div class="service-info">
-                                <h3><p class="name"><%=p1.getTen()%></p></h3>
+                                <h3><p class="name"><%=bs.getHoten()%></p></h3>
+                                <p class="hour"><%=llv.getIDCa()%></p>
+                                <p class="date"><%=llv.getNgay()%></p>
                                 <p class="khoa"><%=tenKhoa%></p>
-                                <p class="cost">Giá khám : <span><%=p1.getGiaKham()%>.000đ</span></p>
+                                <p class="cost">P.<%=bs.getPhongKham()%></p>
                             </div>
-                            <i class="uil uil-arrow-right"></i>
-                        </a>
-                              
+<!--                            <button name="chose"> Đã duyệt </button>-->
+                            <!-- <select class="select-css">
+                                <option>Đã hủy</option>
+                                <option>Đang chờ</option>
+                                <option>Đã duyệt</option>
+                                
+                            </select> -->
                             
-                            <%
-                                }
-                    %>
+                        </a>
+                         <%
+                        }
+                        %>
                         
                         
-                       
 
-                       
                         </div>
+                    
                     </div>
                 </div>
             </sub-section>
-            <sub-section class="pagination">
+            <!-- <sub-section class="pagination">
                 <div class="container">
                     <button class="btn" onclick="backBtn()"> <i class="uil uil-angle-left-b"></i> prev</button>
                     <ul>
-                           <%
-                            for(int i =1;i<=num;i++){
-                            %>
-                            <a  href="idlisser?page=<%=i%>">
-                                <li class="list-link active" value="<%=i%>" onclick="activeLink()"><%=i%></li>
-                            </a>
-                            <%
-                                }
-                            %>
+                        <li class="list-link active" value="1" onclick="activeLink()">1</li>
+                        <li class="list-link" value="2" onclick="activeLink()">2</li>
+                        <li class="list-link" value="3" onclick="activeLink()">3</li>
+                        <li class="list-link" value="4" onclick="activeLink()">4</li>
+                        <li class="list-link" value="5" onclick="activeLink()">5</li>
                     </ul>
                     <button class="btn" onclick="nextBtn()">next <i class="uil uil-angle-right-b"></i></button>
                 </div>
             </sub-section>
-        </section>
+        </section> -->
     </main>
 
     <footer>
@@ -178,17 +196,7 @@
 
     <!-- JavaScript Files -->
 
-    <script src="./js/chuyenkhoa.js"></script>
-     <script>
-    document.addEventListener("keydown", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định của phím Enter (như xuống dòng trong textarea)
-    document.getElementById("myForm").submit(); // Thay "myForm" bằng ID của form bạn muốn submit
-  }
-  
-  
-});
-</script>
+    <script src="./js/history.js"></script>
 </body>
 
 </html>    

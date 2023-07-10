@@ -53,7 +53,7 @@
                      <% String idpa = (String)session.getAttribute("myAccount");
                     if (idpa == null||idpa.equals("admin")){
                     
-                    out.println(" <a href=\"login.jsp\" class=\"username\">Đăng nhập</a> | <a href=\"info.jsp\" class=\"login\">Đăng ký</a>");
+                    out.println(" <a href=\"login.jsp\" class=\"username\">Đăng nhập | Đăng ký</a> ");
                     }
                     else{
                          
@@ -102,7 +102,7 @@
                         %>
                 <div class="menu-profile-tab">
                     <a href="info.jsp" id="menu-opt"><i class="uil uil-user"></i>Hồ sơ cá nhân</a>
-                    <a href="#" id="menu-opt"><i class="uil uil-schedule"></i>Lịch sử đặt khám</a>
+                    <a href="history.jsp" id="menu-opt"><i class="uil uil-schedule"></i>Lịch sử đặt khám</a>
                     <a href="#" id="menu-opt"><i class="uil uil-shopping-cart"></i>Đơn hàng</a>
                     <a href="#" id="menu-opt"><i class="uil uil-question-circle"></i>Câu hỏi của tôi</a>
                     <a href="#" id="menu-opt"><i class="uil uil-keyhole-circle"></i>Đổi mật khẩu</a>

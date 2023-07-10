@@ -31,6 +31,7 @@ public class DichVuDao extends DBContext {
                 c.setTen(rs.getString("ten"));
                 c.setIDKhoa(rs.getInt("IDKhoa"));
                 c.setGiaKham(rs.getInt("GiaKham"));
+                c.setLink(rs.getString("img"));
                 
                 
                 
@@ -60,6 +61,7 @@ public class DichVuDao extends DBContext {
                 c.setGiaKham(rs.getInt("GiaKham"));
                 c.setIDKhoa(rs.getInt("IDKhoa"));
                 c.setTen(rs.getString("ten"));
+                c.setLink(rs.getString("img"));
                 
                 return c;
             }
@@ -106,6 +108,7 @@ public class DichVuDao extends DBContext {
                 c.setIDService(rs.getInt("IDService"));
                 c.setGiaKham(rs.getInt("GiaKham"));
                 c.setTen(rs.getString("ten"));
+                c.setLink(rs.getString("img"));
                
                 
                 list.add(c);

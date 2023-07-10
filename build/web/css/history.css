@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
 /* ---------------------  Website Theme --------------------- */
 
 :root{
     --hue-1: 150;
     --hue-2: 219;
-    --gradient-color: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
+    --gradient-color: linear-gradient(90deg, rgba(78,221,149,1) 31%, rgba(15,204,255,1) 100%);
     --bg-color: hsl(var(--hue-1), 73%, 97%);
-    --main-color-soft: #f2fdf8;
     --main-color-1: hsl(var(--hue-1), 68%, 50%);
     --main-color-dark-1: hsl(var(--hue-1), 71%, 39%);
     --main-color-2: hsl(var(--hue-2), 64%, 39%);
@@ -15,6 +16,7 @@
     --bg-color-2: #fff;
     --bg-color-3: hsl(var(--hue-1), 73%, 98%);
     --bg-color-transparent: rgba(255, 255, 255, 0.821);
+    
     --text-color: hsl(var(--hue-2), 83%, 30%);
 
 }
@@ -22,25 +24,20 @@
 
 /* ---------------------  General Styles --------------------- */
 
+
 *, *::before, *::after{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-    outline: none; border: none;
-    text-decoration: none;
-    text-transform: capitalize;
-    scrollbar-color: var(--main-color-1) var(--main-color-soft);
-    scrollbar-width: thin;
 }
 
 html{
-    font-size: 100%;
+    font-size: 62,5%;
     overflow-x: hidden ;
     scroll-behavior: smooth;
-    scroll-padding-top: 5px;
+    scroll-padding-top: 10rem;
 }
-
 
 body{
     overflow-x: hidden;
@@ -57,21 +54,6 @@ body{
     color: #fff;
 }
 
-*::-webkit-scrollbar{
-    height: .5rem;
-    width: 10px;
- }
- 
- *::-webkit-scrollbar-track{
-    border-radius: 10px;
-    background-color: transparent;
- }
- 
- *::-webkit-scrollbar-thumb{
-    border-radius: 10px;
-    background-color:#8bdfb9;
- }
-
 a{
     text-decoration: none;
 }
@@ -80,14 +62,119 @@ ul{
     list-style: none;
 }
 
-button.btn{
-    color: white;
-    background: rgb(71,189,203);
-    background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
-    border-radius: 10px;
+/* ---------------------  Reusable CSS Code --------------------- */
+
+.info{
+    position: relative;
+    width: 100%;
+    padding: 10px 100px;
+    margin: 0 auto;
+    background-color: var(--main-color-1);
+    color:#fff;
+}
+.container{
+    position: relative;
+    width: 100%;
+    padding: 0 180px;
+    margin: 0 auto;
+    /* background-color: #fff; */
 }
 
-/* ---------------------  Reusable CSS Code --------------------- */
+.logo img{
+    width: 250px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header .logo{
+    height: 55px;
+    line-height: 55px;
+}
+
+/* ---------------------  Navbar Styles --------------------- */
+
+nav{
+    background-color: #fff;
+}
+
+nav.scrolled {
+    background-color: var(--bg-color-transparent);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur();
+}
+
+nav.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}   
+
+nav.scrolled .logo{
+    height: 50px;
+    line-height: 50px;
+}
+
+.info ul{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login{
+    display: inline-block;
+    /* text-transform: uppercase; */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+    font-weight: 400;
+}
+
+
+.links ul{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link{
+    position: relative;
+    display: inline-block;
+    margin: 0 1rem;
+    /* text-transform: uppercase; */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    font-weight: 520;
+    transition: 0.3s;
+}
+
+.nav-link::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--main-color-1);
+    bottom: -3px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover{
+    color: var(--main-color-1);
+}
+
+.nav-link:hover::after{
+    width: 100%;
+}
 
 
 /* ---------------------  Showcase Area Styles --------------------- */
@@ -145,82 +232,57 @@ p.text{
 h2{
     color: var(--text-color);
     padding: 20px;
+    margin-left: 50px;
+   size: 50px;
 }
 
-.dr-link{
-    color: var(--text-color);
-}
-
-.doctor-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    row-gap: 40px;
-    padding-left: 50px;
-    
-}
-
-.dr-card{
+.service .container .service-list .service-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 300px;
-    height: 450px;
+    width: 700px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: .2s;
 }
 
-.dr-card,
-.dr-info{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+.service .container .service-list .service-card:hover{
+    transform: scale(1.05);
 }
 
-.dr-image{
-    width: 100%;
+.service .container .service-list .service-card .service-image{
+    width: 100px ;
 }
 
-.dr-image{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: url('../assets/doctor1.jpg') no-repeat center / cover;
-    border: 4px solid #4edd95;
-    position: absolute;
-    top: 15px;
+.service .container .service-list .service-card .service-image img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-left: -100px;
 }
 
-.dr-info{
-    padding-top: 220px;
+.service .container .service-list .service-card .service-info{
+    width: 310px;
+    margin: auto 10px;
 }
 
-h3{
-    padding: 15px;
+.service .container .service-list .service-card .service-info p{
+    margin-bottom: 10px;
 }
 
-p.khoa{
-    color: var(--text-color);
-    padding: 0.5rem 0.5rem;
-    background-color: var(--bg-color-1);
+.service .container .service-list .service-card i{
+    font-size: 30px;
+    color: var(--main-color-1);
 }
 
-p.cost{
-    position: absolute;
-    bottom: 80px;
-}
 
-.secondary-btn{
-    display: inline-block;
-    position: absolute;
-    bottom: 10px;
-    padding: 0.9rem 1.75rem;
-    border-radius: 20px;
-    background: rgb(71,189,203);
-    background: linear-gradient(93deg, rgba(71,189,203,1) 0%, rgba(49,216,133,1) 100%);
-    color: #fff;
-    text-transform: capitalize;
-}
+
 
 /* ---------------------  Pagination Styles --------------------- */
 
@@ -301,4 +363,38 @@ ul.social-media{
     display: flex;
     align-items: center;
     justify-content: center;
-} 
+}
+/* .select-css {
+    
+	display: block;
+	color: #444;
+    font-weight: 600;
+    height: 40px;
+    border-radius: 30%;
+    border: 2px solid black;
+    margin-top: -70px;
+    margin-right: -100px;
+}
+.select-css option {
+	font-weight:normal;
+} */
+button{
+   
+    font-weight: 500;
+	display: block;
+	/* color: #444; */
+    height: 40px;
+    width: 70px;
+    border-radius: 40%;
+    border: 0px;
+    margin-top: -90px;
+    margin-right: -100px;
+    background-color:rgb(243, 169, 169);
+    
+}
+.hour{
+    font-weight: 500;
+}
+.date{
+    font-weight: 500;
+}

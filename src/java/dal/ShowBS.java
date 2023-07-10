@@ -48,6 +48,31 @@ public class ShowBS extends DBContext {
         
         return list;   
     }
+   
+    public BacSi getBacSiWithIDLich(int idLich){
+        
+        String sql = "select * from BacSi bs JOIN LichLamViec llv on bs.IDBacSi = llv.IDBacSi where llv.IDLich = ? ";
+        
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+             st.setInt(1,idLich);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                ShowBS show = new ShowBS();
+               
+                String id = rs.getString("IDBacSi");
+                BacSi c  = show.getBacSiById(id);
+                
+                return c;
+            }
+            
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        
+        return null;  
+    }
     public BacSi getBacSiById(String id){
         String sql = "select * from BacSi where IDBacSi = ?";
         

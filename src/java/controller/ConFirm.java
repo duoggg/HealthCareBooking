@@ -114,7 +114,7 @@ public class ConFirm extends HttpServlet {
         
         }
        else{
-           response.sendRedirect("homepage.jsp");
+           response.sendRedirect("idlisdoc");
        }
 //        request.getRequestDispatcher("indexdr.jsp").forward(request, response);
   

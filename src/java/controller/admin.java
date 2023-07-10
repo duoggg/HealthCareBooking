@@ -65,7 +65,7 @@ public class admin extends HttpServlet {
     throws ServletException, IOException {
          HttpSession session = request.getSession();
         String a = (String) session.getAttribute("myAccount");
-        if(a=="admin"){
+        if(a.equals("admin")){
         ShowBS c = new ShowBS();
         List<BacSi> list1 = c.getAll();
         BenhNhanDao bnd = new BenhNhanDao();
@@ -81,8 +81,6 @@ public class admin extends HttpServlet {
         int number = (size%numberpage==0?(size/numberpage):((size/numberpage)+1));
         int number2 = (size2%numberpage==0?(size2/numberpage):((size2/numberpage)+1));
         int number3 = (size3%numberpage==0?(size3/numberpage):((size3/numberpage)+1));
-        //String xpage = request.getParameter("page");
-       // String xpage2 = request.getParameter("page2");
         
         int turn = 0;
         int turn2 = 0;
@@ -91,12 +89,7 @@ public class admin extends HttpServlet {
             page = 1;
             page2 = 1;
             page3 =1;
-           
        
-           
-           // page2 = Integer.parseInt(xpage2);
-            
-        
         int start; int end;
         start = (page-1)*numberpage;
         end = Math.min(page*numberpage,size);
