@@ -33,7 +33,25 @@
     background-color: var(--bg-color-transparent);
     box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
 } 
+    .bac-si-noi-bat .container .dr-card .image.bs1{
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg') no-repeat center / cover;
+    }
 
+.bac-si-noi-bat .container .dr-card .image.bs2{
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/bv.jpg') no-repeat center / cover;
+    }
+ .bac-si-noi-bat .container .dr-card .image.bs3{
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/nhung%20(2).png') no-repeat center / cover;
+    }
+  .bac-si-noi-bat .container .dr-card .image.bs4{
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/MA.JPG') no-repeat center / cover;
+    }
+   .bac-si-noi-bat .container .dr-card .image.bs5{
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/Vanh.png') no-repeat center / cover;
+    }
+    .bac-si-noi-bat .container .dr-card .image.bs6{
+    background: url('https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/trang.png') no-repeat center / cover;
+    }
     </style>
     <!-- CSS Files -->
     <link rel="stylesheet" href="./css/homepage.css">
@@ -193,15 +211,15 @@
                             </div>
                             <div class="chuyen-khoa">
                                 <i class="uil uil-medical-square"></i>
-                                <p class="text">Chuyên khoa Tai Mũi Họng</p>
+                                <p class="text">Chuyên khoa Răng Hàm Mặt</p>
                             </div>
                             <div class="phong-kham">
                                 <i class="uil uil-bag"></i>
                                 <p class="text">Phòng khám:</p> <p class="dc-phongkham">P.401 Tòa D9</p>
                             </div>
                         </div>
-                        <div class="image">
-                            <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
+                        <div class="image bs1">
+                           
                         </div>
                     </a>
 
@@ -215,15 +233,15 @@
                             </div>
                             <div class="chuyen-khoa">
                                 <i class="uil uil-medical-square"></i>
-                                <p class="text">Chuyên khoa Hô Hấp</p>
+                                <p class="text">Chuyên khoa Tai Mũi Họng</p>
                             </div>
                             <div class="phong-kham">
                                 <i class="uil uil-bag"></i>
                                 <p class="text">Phòng khám:</p> <p class="dc-phongkham">P.402 Tòa D9</p>
                             </div>
                         </div>
-                        <div class="image">
-                            <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
+                        <div class="image bs2">
+                          
                         </div>
                     </a>
 
@@ -244,8 +262,8 @@
                                 <p class="text">Phòng khám:</p> <p class="dc-phongkham">P.403 Tòa D9</p>
                             </div>
                         </div>
-                        <div class="image">
-                            <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
+                        <div class="image bs3">
+<!--                             <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
                         </div>
                     </a>
 
@@ -265,8 +283,8 @@
                                 <p class="text">Phòng khám:</p> <p class="dc-phongkham">P.404 Tòa D9</p>
                             </div>
                         </div>
-                        <div class="image">
-                            <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
+                        <div class="image bs4">
+                            <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/MA.JPG" alt=""> -->
                         </div>
                     </a>
 
@@ -286,7 +304,7 @@
                                 <p class="text">Phòng khám:</p> <p class="dc-phongkham">P.405 Tòa D9</p>
                             </div>
                         </div>
-                        <div class="image">
+                        <div class="image bs5">
                             <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
                         </div>
                     </a>
@@ -307,7 +325,7 @@
                                 <p class="text">Phòng khám:</p> <p class="dc-phongkham">P.406 Tòa D9</p>
                             </div>
                         </div>
-                        <div class="image">
+                        <div class="image bs6">
                             <!-- <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/doctor1.jpg" alt=""> -->
                         </div>
                     </a>

@@ -28,8 +28,8 @@
     current_shift = event.target.value;
    document.f.action="transferdat?ca="+ca;
    document.f.action+="&id="+id;
-    service_label.textContent = "Khám theo yêu cầu chuyên khoa Tai - Mũi - Họng";
-    service_price.textContent = "500.000 đ";
+    service_label.textContent = "Khám theo bác sĩ";
+    service_price.textContent = "Thanh toán tại bệnh viện";
     serviceInfo.style.display = "block";
     
     
@@ -101,6 +101,8 @@
             if(request.getAttribute("doctor")!= null){
             BacSi i =(BacSi)request.getAttribute("doctor");
             String id = i.getIDBacSi();
+            ShowBS sbs = new ShowBS();
+             String tenKhoa = sbs.getKhoaByIdBacSi(id);
             %>
             <div class="container">
                  <style>
@@ -132,7 +134,7 @@
                         <p class="sdt"><%=i.getSDT()%></p>
                     </div>
                     <div class="chuyen-khoa">
-                        <p class="khoa">Chuyên khoa Tai Mũi Họng</p>
+                        <p class="khoa"><%=tenKhoa%></p>
                     </div>
                     <p class="cost">Giá khám : <span>500.000đ</span></p>
                     <div class="opt">
@@ -196,7 +198,7 @@
             
             %>
         <section class="info-dr" id="info-dr">
-            <div class="container">
+<!--            <div class="container">
                 <h3>KINH NGHIỆM KHÁM CHỮA BỆNH</h3>
             <div class="duty">Trưởng Khoa Tai - Mũi - Họng Bệnh viện Zương Zương</div>
             <div class="pros">Thế mạnh chuyên môn:
@@ -208,7 +210,7 @@
                     <li>Điều trị các đau mạn tính vùng sọ mặt, vùng lưỡi</li>
                 </ul>
             </div>
-            </div>
+            </div>-->
         </section>
     </main>
 

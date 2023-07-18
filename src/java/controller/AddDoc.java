@@ -5,8 +5,6 @@
 
 package controller;
 
-import dal.BenhNhanDao;
-import dal.LichLamViecDao;
 import dal.ShowBS;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,16 +13,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.BacSi;
-import model.LichDat;
 
 /**
  *
  * @author DELL
  */
-@WebServlet(name="TransDat", urlPatterns={"/transferdat"})
-public class TransDat extends HttpServlet {
+@WebServlet(name="Addoc", urlPatterns={"/addoc"})
+public class AddDoc extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,10 +36,10 @@ public class TransDat extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TransDat</title>");  
+            out.println("<title>Servlet AddDoc</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TransDat at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AddDoc at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,33 +69,39 @@ public class TransDat extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String ca= request.getParameter("ca");
-        String idDoc= request.getParameter("id");
-//        System.out.println(idDoc);
-      //  int caInt =Integer.parseInt(ca);
-
-        String date= request.getParameter("date");
-        ShowBS c = new ShowBS();
-        BacSi a = c.getBacSiById(idDoc);
-        int caInt = Integer.parseInt(ca);
-        request.setAttribute("ca", ca);
-        request.setAttribute("doctor", a);
-        request.setAttribute("date", date);
-          
-           HttpSession session = request.getSession();
-           
-            if (session.getAttribute("myAccount") == null) {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-                } else {
-    // Session không rỗng
-                
-                 
-                 String idpa = (String)session.getAttribute("myAccount");
-
-                 request.getRequestDispatcher("confirmedbooking.jsp").forward(request, response);
-            }
-
+      
+        String name = request.getParameter("name");
+        String pass = request.getParameter("pass");
+        String special = request.getParameter("special");
+        String year = request.getParameter("year");
+        String room = request.getParameter("room");
+        String sdt = request.getParameter("sdt");
+        String email = request.getParameter("email");
+        String link = request.getParameter("link");
+      
         
+       // String id = id_raw;
+        int idspe = Integer.parseInt(special);
+        int yearint = Integer.parseInt(year);
+        //int roomint = Integer.parseInt(room);
+        int phone = Integer.parseInt(sdt);
+        
+            //id= id_raw;
+            ShowBS cdb = new ShowBS();
+            //BacSi c = new BacSi(id,name,idspe,pass,yearint,room,phone,email,link);
+        if( cdb.insert(name,pass,idspe,yearint,room,phone,email,link)==1) response.sendRedirect("admin");
+        else {
+            
+            String messageError ="Không có khoa này!";
+            request.setAttribute("erroradddoc", messageError);
+          request.getRequestDispatcher("AddDoc.jsp").forward(request, response);
+        }
+        
+       
+            
+            
+            
+       
     }
 
     /** 

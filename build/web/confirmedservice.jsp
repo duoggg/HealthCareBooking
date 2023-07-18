@@ -5,9 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import = "model.BacSi"%>
+<%@page import = "model.DichVu"%>
 <%@page import = "model.BenhNhan"%>
 <%@page import = "dal.BenhNhanDao"%>
+<%@page import = "dal.DichVuDao"%>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -15,7 +16,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Thông tin đặt lịch khám </title>
+   <title>Thông tin đặt lịch đặt gói </title>
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="./css/result.css">
@@ -28,10 +29,10 @@
 
 <section class="account-form">
 
-    <form name="f" action="confirm" method="post" >
-      <h1>Thông tin đặt lịch khám</h1>
+    <form name="f" action="confirmservice" method="post" >
+      <h1>Thông tin đặt lịch đặt gói</h1>
       <img src="ava.png" alt="" class="image">
-      <h2>Thông tin bệnh Nhân </h2>
+      <h2>Thông tin Bệnh Nhân </h2>
    <div class="infor">
       <div class="ima">
          <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/ava-users.png" alt="" class="image2">
@@ -71,11 +72,11 @@
           <%
 //           if(request.getAttribute("doctor")!= null){
             
-            BacSi i =(BacSi)request.getAttribute("doctor");
+            DichVu i =(DichVu)request.getAttribute("service");
             String c =(String)request.getAttribute("ca");
            
             String da =(String)request.getAttribute("date");
-            String id = i.getIDBacSi();
+            int id = i.getIDService();
             %>
       <h2>Thông tin đặt khám</h2>
       <div class="infor">
@@ -87,11 +88,10 @@
               
                  
                  
-            <p class="placeholder"> <b>Họ và tên bác sĩ</b> </p>
-            <input type="hidden" name="iddoc" value="<%=id%>">
-         <input type="text" readonly name ="namedoc" value = "<%=i.getHoten()%>" maxlength="50" class="box">
-         <p class="placeholder"><b>Số điện thoại bác sĩ</b></p>
-         <input type="number" readonly name ="id" value = "<%=i.getSDT()%>" maxlength="50" class="box">
+            <p class="placeholder"> <b>Tên dịch vụ</b> </p>
+            <input type="hidden" name="idser" value="<%=id%>">
+         <input type="text" readonly name ="namedoc" value = "<%=i.getTen()%>" maxlength="50" class="box">
+        
          </div>
          <div class="par3">
             <p class="placeholder">Ngày đặt khám</p>
@@ -120,9 +120,9 @@
   
    <section class="pthuc">
    <h2>Phương thức thanh toán </h2>
-   <b><input  onclick="tien_mat()" value ="Thanh toán tại quầy" class="btn2" readonly/></b>
-<!--   </br>
-    <input onclick="pay()" class="btn2" value =" Bằng Tài Khoản"/>-->
+   <b><input  onclick="tien_mat()" value ="Bằng Tiền Mặt" class="btn2" readonly/></b>
+   </br>
+    <input onclick="pay()" class="btn2" value =" Bằng Tài Khoản"/>
 
    <p id="demo" class="out"></p>
    <%

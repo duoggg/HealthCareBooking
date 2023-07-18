@@ -68,6 +68,26 @@
         <servlet-name>SearchSer</servlet-name>
         <servlet-class>controller.SearchSer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>controller.Register</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddDoc</servlet-name>
+        <servlet-class>controller.AddDoc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DatSer</servlet-name>
+        <servlet-class>controller.DatSer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>transferdatgoi</servlet-name>
+        <servlet-class>controller.transferdatgoi</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmService</servlet-name>
+        <servlet-class>controller.ConfirmService</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowDoc</servlet-name>
         <url-pattern>/show</url-pattern>
@@ -135,6 +155,26 @@
     <servlet-mapping>
         <servlet-name>SearchSer</servlet-name>
         <url-pattern>/searchser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDoc</servlet-name>
+        <url-pattern>/adddoc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DatSer</servlet-name>
+        <url-pattern>/datser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>transferdatgoi</servlet-name>
+        <url-pattern>/transferdatgoi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmService</servlet-name>
+        <url-pattern>/confirmservice</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

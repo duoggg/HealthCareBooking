@@ -73,6 +73,32 @@ public class ShowBS extends DBContext {
         
         return null;  
     }
+    
+     public int insert(String name,String pass,int Khoa, int year,String room,int sdt,String email, String link ){
+        
+         String sql ="INSERT INTO BacSi (hoten,password,IDKhoa,namSinh,phongKham,SDT,email,link) VALUES ( ?,?,?,?,?,?,?,?)";
+        try{
+            
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1,name);
+            st.setString(2,pass);
+            st.setInt(3,Khoa);
+            st.setInt(4,year);
+            st.setString(5, room);
+            st.setInt(6,sdt);
+            st.setString(7,email);
+            st.setString(8,link);
+            
+  
+            st.executeUpdate();
+            return 1;
+        }catch(SQLException e){
+            System.out.println(e);
+            return 0;
+        }
+        
+       
+    }
     public BacSi getBacSiById(String id){
         String sql = "select * from BacSi where IDBacSi = ?";
         

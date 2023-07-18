@@ -34,7 +34,7 @@
             <p class="placeholder">Họ và tên</p>  <input type = "text" name ="name" value = "<%= i.getHoten()%>" class="box"/><br/> 
            <p class="placeholder">Password</p>  <input type = "text" name ="pass" value = "<%= i.getPassword()%>" class="box" /><br/> 
            <p class="placeholder"> Mã khoa  </p>  <input type = "number" name ="special" value = "<%= i.getIDKhoa()%>" class="box"/><br/> 
-            <p class="placeholder">Ngày sinh</p> <input type = "number" name ="year" value = "<%= i.getNamSinh()%>" class="box"/><br/> 
+            <p class="placeholder">Năm sinh</p> <input type = "number" name ="year" value = "<%= i.getNamSinh()%>" class="box"/><br/> 
            <p class="placeholder"> Phòng Khám </p> <input type = "text" name ="room" value = "<%= i.getPhongKham()%>" class="box"/><br/> 
            <p class="placeholder">Số điện thoại</p> <input type = "number" name ="sdt" value = "<%= i.getSDT()%>" class="box"/><br/> 
             <p class="placeholder">Email</p>  <input type = "text" name ="email" value = "<%= i.getEmail()%>" class="box"/><br/> 

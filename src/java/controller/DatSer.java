@@ -5,9 +5,7 @@
 
 package controller;
 
-import dal.BenhNhanDao;
-import dal.LichLamViecDao;
-import dal.ShowBS;
+import dal.DichVuDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,16 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.BacSi;
-import model.LichDat;
+import model.DichVu;
 
 /**
  *
  * @author DELL
  */
-@WebServlet(name="TransDat", urlPatterns={"/transferdat"})
-public class TransDat extends HttpServlet {
+@WebServlet(name="DatSer", urlPatterns={"/datser"})
+public class DatSer extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,10 +37,10 @@ public class TransDat extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TransDat</title>");  
+            out.println("<title>Servlet DatSer</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TransDat at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet DatSer at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,7 +57,15 @@ public class TransDat extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String IdSer = (String)request.getParameter("id");
+         DichVuDao d = new DichVuDao();
+         int id = Integer.parseInt(IdSer);
+         
+        // System.out.println(IdDoc);
+
+        DichVu a = d.getDichVuById(id);
+         request.setAttribute("service", a);
+          request.getRequestDispatcher("bookservice.jsp").forward(request, response);
     } 
 
     /** 
@@ -74,33 +78,15 @@ public class TransDat extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String ca= request.getParameter("ca");
-        String idDoc= request.getParameter("id");
-//        System.out.println(idDoc);
-      //  int caInt =Integer.parseInt(ca);
+        String IdSer = (String)request.getParameter("id");
+         DichVuDao d = new DichVuDao();
+         int id = Integer.parseInt(IdSer);
+         
+        // System.out.println(IdDoc);
 
-        String date= request.getParameter("date");
-        ShowBS c = new ShowBS();
-        BacSi a = c.getBacSiById(idDoc);
-        int caInt = Integer.parseInt(ca);
-        request.setAttribute("ca", ca);
-        request.setAttribute("doctor", a);
-        request.setAttribute("date", date);
-          
-           HttpSession session = request.getSession();
-           
-            if (session.getAttribute("myAccount") == null) {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-                } else {
-    // Session không rỗng
-                
-                 
-                 String idpa = (String)session.getAttribute("myAccount");
-
-                 request.getRequestDispatcher("confirmedbooking.jsp").forward(request, response);
-            }
-
-        
+        DichVu a = d.getDichVuById(id);
+         request.setAttribute("service", a);
+          request.getRequestDispatcher("bookservice.jsp").forward(request, response);
     }
 
     /** 

@@ -40,6 +40,44 @@ public class BenhNhanDao extends DBContext {
         
     }
     
+     public void newAccount(String username, String password, int phone){
+        String sql ="INSERT INTO BenhNhan ( username,password,SDT) VALUES ( ?,?,?)";
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            
+            st.setString(1, username);
+           
+            st.setString(2,password);
+            st.setInt(3, phone);
+            st.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
+        
+    }
+     
+      public int CheckRegister(String username){
+        String sql = "select * from BenhNhan where username = ? ";
+        int c = 0 ;
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                
+                c =1;
+                return c;
+               
+            }
+            
+        }catch(SQLException e){
+            System.out.println(e);
+            
+        }
+        return c;
+      }
+    
+    
     public List<BenhNhan> getAll(){
         List<BenhNhan> list = new ArrayList<>();
         String sql = "select * from BenhNhan ";

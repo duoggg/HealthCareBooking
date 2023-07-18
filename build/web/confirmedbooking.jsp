@@ -34,7 +34,7 @@
       <h2>Thông tin bệnh Nhân </h2>
    <div class="infor">
       <div class="ima">
-         <img src="doctor3.jpg" alt="" class="image2">
+         <img src="https://raw.githubusercontent.com/JosephD0310/Web_Booking_care/main/assets/ava-users.png" alt="" class="image2">
       </div>
        
         <%
@@ -120,9 +120,9 @@
   
    <section class="pthuc">
    <h2>Phương thức thanh toán </h2>
-   <b><input  onclick="tien_mat()" value ="Bằng Tiền Mặt" class="btn2" readonly/></b>
-   </br>
-    <input onclick="pay()" class="btn2" value =" Bằng Tài Khoản"/>
+   <b><input  onclick="tien_mat()" value ="Thanh toán tại quầy" class="btn2" readonly/></b>
+<!--   </br>
+    <input onclick="pay()" class="btn2" value =" Bằng Tài Khoản"/>-->
 
    <p id="demo" class="out"></p>
    <%
@@ -134,7 +134,7 @@
                 </br><!-- comment -->
                 </br><!-- comment -->
 
-                <h2><%=error%></div></h2>
+                <h2><%=error%></h2>
              <%   }
                  %>
    

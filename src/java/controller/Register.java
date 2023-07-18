@@ -6,8 +6,6 @@
 package controller;
 
 import dal.BenhNhanDao;
-import dal.LichDatDao;
-import dal.ShowBS;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,17 +14,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.List;
-import model.BacSi;
-import model.BenhNhan;
-import model.LichDat;
 
 /**
  *
  * @author DELL
  */
-@WebServlet(name="admin", urlPatterns={"/admin"})
-public class admin extends HttpServlet {
+@WebServlet(name="Register", urlPatterns={"/register"})
+public class Register extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -43,10 +37,10 @@ public class admin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet admin</title>");  
+            out.println("<title>Servlet Register</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Bạn không là ADMIN !!!! " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet Register at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,67 +57,8 @@ public class admin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        String a = (String) session.getAttribute("myAccount");
-        
-        if(a.equals("admin")){
-        ShowBS c = new ShowBS();
-        List<BacSi> list1 = c.getAll();
-        BenhNhanDao bnd = new BenhNhanDao();
-        List<BenhNhan> list2 = bnd.getAll();
-        
-        LichDatDao ldd = new LichDatDao();
-        List<LichDat> list3 = ldd.getAll();
-        
-        int page,page2,page3,numberpage = 9;
-        int size = list1.size();
-        int size2 = list2.size();
-        int size3 = list3.size();
-        int number = (size%numberpage==0?(size/numberpage):((size/numberpage)+1));
-        int number2 = (size2%numberpage==0?(size2/numberpage):((size2/numberpage)+1));
-        int number3 = (size3%numberpage==0?(size3/numberpage):((size3/numberpage)+1));
-        
-        int turn = 0;
-        int turn2 = 0;
-        int turn3 = 0;
-       
-            page = 1;
-            page2 = 1;
-            page3 =1;
-       
-        int start; int end;
-        start = (page-1)*numberpage;
-        end = Math.min(page*numberpage,size);
-        List<BacSi> list = c.getListByPage(list1, start, end);
-        request.setAttribute("turn", turn);
-        request.setAttribute("data", list);
-        request.setAttribute("page",page );
-        request.setAttribute("num",number);
-        
-        
-//        int start2; int end2;
-        start = (page2-1)*numberpage;
-        end = Math.min(page2*numberpage,size2);
-        List<BenhNhan> listbn = bnd.getListByPage(list2, start, end);
-        request.setAttribute("turn2", turn2);
-        request.setAttribute("data2", listbn);
-        request.setAttribute("page2",page2 );
-        request.setAttribute("num2",number2);
-        
-        start = (page3-1)*numberpage;
-        end = Math.min(page3*numberpage,size3);
-        List<LichDat> listld = ldd.getListByPage(list3, start, end);
-        request.setAttribute("turn3", turn3);
-        request.setAttribute("data3", listld);
-        request.setAttribute("page3",page3 );
-        request.setAttribute("num3",number3);
-        
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
-    }
-        else{
-             processRequest(request, response);
-        }
-        }
+        processRequest(request, response);
+    } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -135,7 +70,34 @@ public class admin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String username = request.getParameter("REusername");
+        String pass = request.getParameter("REpassword");
+         String tel = request.getParameter("phone");
+        int phone = Integer.parseInt(tel);
+        try{
+            
+            BenhNhanDao cdb = new BenhNhanDao();
+           int d = cdb.CheckRegister(username);
+            
+            if(d==0){
+                BenhNhanDao bnd = new BenhNhanDao();
+                bnd.newAccount(username, pass,phone);
+//                String ms =  "Dang nhap thanh cong!";
+//                request.setAttribute("susscess",ms);
+                response.sendRedirect("login.jsp");  
+                
+            }else{ 
+                String ms =  "Tai khoan da ton tai !";
+                request.setAttribute("ReError",ms);
+                 
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+           
+            
+            
+        }catch(NumberFormatException e){
+            System.out.println(e);
+        }
     }
 
     /** 

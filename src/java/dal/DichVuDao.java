@@ -72,6 +72,8 @@ public class DichVuDao extends DBContext {
         return null;
     }
       
+      
+      
       public String getKhoaByIdDichVu(int IdDichVu){
              String sql = "select * from DichVu dv JOIN KHOA k on dv.IDKhoa = k.IDKhoa and dv.IDService = ? ";
         

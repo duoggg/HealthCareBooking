@@ -9,7 +9,12 @@
 <%@page import = "dal.DichVuDao"%>
 <%@page import = "java.util.List"%>
 
+
 <%@page import = "java.util.ArrayList"%>
+
+<%@page import = "dal.BenhNhanDao"%>
+<%@page import = "model.BenhNhan"%>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -106,13 +111,13 @@
                            DichVu p1 = bs.get(i);
                            DichVuDao sbs = new DichVuDao();
                             int id = p1.getIDService();
+                            String strid = Integer.toString(id);
                           String tenKhoa = sbs.getKhoaByIdDichVu(id);
                            
                           %>
                           
-                              
-                               
-                               <a href="idlisser?id="+<%=id%> class="service-card">
+                      
+                          <a href="datser?id=<%=strid%>" class="service-card">
                             <div class="service-image">
                                 <img src="<%=p1.getLink()%>" alt="">
                             </div>
@@ -120,6 +125,7 @@
                                 <h3><p class="name"><%=p1.getTen()%></p></h3>
                                 <p class="khoa"><%=tenKhoa%></p>
                                 <p class="cost">Giá khám : <span><%=p1.getGiaKham()%>.000đ</span></p>
+                                
                             </div>
                             <i class="uil uil-arrow-right"></i>
                         </a>

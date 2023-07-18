@@ -37,7 +37,7 @@
       <input type="text" name="name" maxlength="50" value="<%=bn.getHoten()%>" placeholer="" class="box"/>
       <p class="placeholder">Số điện thoại</p>
       <input type="text" name="phone" maxlength="50" value="<%=bn.getSDT()%>" class="box">
-      <p class="placeholder">Ngày sinh</p>
+      <p class="placeholder">Năm sinh</p>
       <input type="number" name="birthday" value="<%=bn.getNamSinh()%>" class="box">
       <p class="placeholder">Giới tính</p>
       <input type="text" name="sex" maxlength="50" value="<%=bn.getGioiTinh()%>" required="Bạn chưa nhập sdt" class="box">

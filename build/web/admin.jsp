@@ -168,7 +168,7 @@
             <a href="logout" class="form-submit">Có</a>
 <!--            <input type="submit" onclick="logout()" value="Có" class="form-submit">-->
        
-
+            
         <a href="admin" class="form-submit">  Không </a>
 <!--        <input type="submit"  value="Không " class="form-submit">-->
 <!--<a href="#" class="form-submit"><span>Kh</span> </a>-->
@@ -306,7 +306,7 @@ else{
       </div>
     <h1>Danh sách các bác sĩ của bệnh viện </h1>
 </br>
-<h3><a  href ="#">Add new</a> </h3>
+<h3><a  href ="AddDoc.jsp">Add new</a> </h3>
     
     
       
@@ -410,7 +410,7 @@ else{
 
     <h1>Lịch khám đã được đăng kí </h1>
    </br>
-   <h3><a  href ="#">Add new</a> </h3>
+<!--   <h3><a  href ="#">Add new</a> </h3>-->
     
     
       
@@ -475,41 +475,41 @@ else{
                     } 
 %>
        
-        
-         <div class="lich_lam" id="lich_lam" style="display: none;" >
-        <div class="topnav">
-            <input type="text" placeholder="Tìm kiếm..."/>
-          </div>
-             
-             
-        <h1>Lịch làm việc </h1>
-       </br>
-      <div class="wraper">
-        <table class="lichkham" >
-            <tr>
-                <th>Ngày làm việc </th>
-                <th>Số lượng Max</th>
-                <th>Số lượng</th>
-                <th>ID bác sĩ </th>
-                <th>ID lịch</th>
-                <th>ID ca</th>
-               
-               
-            </tr>
-            <tr>
-                <td>14-09-2023</td>
-                <td>20</td>
-                <td>10</td>
-                <td>BS01</td>
-                <td>Lich_dk1</td>
-                <td>Ca_01</td>
-
-            </tr>
-             </table>
-            </div>
-       </div>
+      <%  
+//         <div class="lich_lam" id="lich_lam" style="display: none;" >
+//        <div class="topnav">
+//            <input type="text" placeholder="Tìm kiếm..."/>
+//          </div>
+//             
+//             
+//        <h1>Lịch làm việc </h1>
+//       </br>
+//      <div class="wraper">
+//        <table class="lichkham" >
+//            <tr>
+//                <th>Ngày làm việc </th>
+//                <th>Số lượng Max</th>
+//                <th>Số lượng</th>
+//                <th>ID bác sĩ </th>
+//                <th>ID lịch</th>
+//                <th>ID ca</th>
+//               
+//               
+//            </tr>
+//            <tr>
+//                <td>14-09-2023</td>
+//                <td>20</td>
+//                <td>10</td>
+//                <td>BS01</td>
+//                <td>Lich_dk1</td>
+//                <td>Ca_01</td>
+//
+//            </tr>
+//             </table>
+//            </div>
+//       </div>
        
-
+%>
 
 
 </div>

@@ -1,14 +1,15 @@
 <%-- 
-    Document   : indexbooking
-    Created on : Jul 3, 2023, 8:29:44 PM
+    Document   : confirmedbooking
+    Created on : Jul 3, 2023, 11:54:41 PM
     Author     : DELL
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import = "model.BacSi"%>
-<%@page import = "dal.ShowBS"%>
-<%@page import = "dal.BenhNhanDao"%>
+<%@page import = "model.DichVu"%>
 <%@page import = "model.BenhNhan"%>
+<%@page import = "dal.BenhNhanDao"%>
+<%@page import = "dal.DichVuDao"%>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -18,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/ava.png" type="assets/x-icon" />
    
-    <title>Doctor Profile</title>
+    <title>Service Profile</title>
 <script type="text/javascript">
     function activeShift(ca,id){
     for(s of shift){
@@ -26,9 +27,9 @@
     };
     event.target.classList.add("active");
     current_shift = event.target.value;
-   document.f.action="transferdat?ca="+ca;
+   document.f.action="transferdatgoi?ca="+ca;
    document.f.action+="&id="+id;
-    service_label.textContent = "Khám theo bác sĩ";
+    service_label.textContent = "Khám theo dịch vụ";
     service_price.textContent = "Thanh toán tại bệnh viện";
     serviceInfo.style.display = "block";
     
@@ -98,11 +99,11 @@
     <main>
         <section class="showcase-area">
                <%
-            if(request.getAttribute("doctor")!= null){
-            BacSi i =(BacSi)request.getAttribute("doctor");
-            String id = i.getIDBacSi();
-            ShowBS sbs = new ShowBS();
-             String tenKhoa = sbs.getKhoaByIdBacSi(id);
+            if(request.getAttribute("service")!= null){
+            DichVu i =(DichVu)request.getAttribute("service");
+            int id = i.getIDService();
+            DichVuDao sbs = new  DichVuDao();
+             String tenKhoa = sbs.getKhoaByIdDichVu(id);
             %>
             <div class="container">
                  <style>
@@ -115,28 +116,18 @@
                 </div>
                 <div class="dr-info">
                   
-                    <h2 class="dr-name"><%= i.getHoten()%></h2>
+                    <h2 class="dr-name"><%= i.getTen()%></h2>
                 
                     <div class="hospital">
                         <p class="hospital-name"> <i class="uil uil-map-marker"></i> Bệnh viện Zương Zương</p>
                         <p class="text">Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</p>
                     </div>
-                    <div class="phong-kham">
-                        <div class="text"><i class="uil uil-user-location"></i> Phòng khám: </div>
-                        <p class="dc-phongkham">P<%=i.getPhongKham()%></p>
-                    </div>
-                    <div class="email-box">
-                        <div class="text"><i class="uil uil-envelope"></i> Email: </div>
-                        <p class="email"><%=i.getEmail()%></p>
-                    </div>
-                    <div class="sdt-box">
-                        <div class="text"><i class="uil uil-phone-alt"></i> Số điện thoại: </div>
-                        <p class="sdt"><%=i.getSDT()%></p>
-                    </div>
+                    
+                   
                     <div class="chuyen-khoa">
                         <p class="khoa"><%=tenKhoa%></p>
                     </div>
-                    <p class="cost">Giá khám : <span>500.000đ</span></p>
+                    <p class="cost">Giá khám : <span><%=i.getGiaKham()%>.000đ</span></p>
                     <div class="opt">
                         <a href="#booking" class="btn">Đặt lịch ngay <i class="uil uil-arrow-circle-right"></i></a>
                         <a href="#info-dr" class="btn secondary-btn">Thông tin</a>
